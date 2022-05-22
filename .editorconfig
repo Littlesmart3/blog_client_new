@@ -1,0 +1,14 @@
+## static source
+static/
+dist/
+
+#监控微信小程序
+/src/utils/wxLogger.js
+
+## test
+tests/
+
+## config
+jsconfig.json
+
+babel.config.js
