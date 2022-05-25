@@ -39,13 +39,14 @@ jobs:
               host: ${{ secrets.REMOTE_HOST }}
               username: ${{ secrets.USER_NAME }}
               password: ${{ secrets.PASSWORD }}
-              script: ｜
-                     cd /www/wwwroot/www.littlesmart3.top
-                     git checkout master
-                     git pull 
-                     npm install 
-                     npm run build
-                     npm run start 
+              script: |
+                     whoami
+#                      cd /www/wwwroot/www.littlesmart3.top
+#                      git checkout master
+#                      git pull 
+#                      npm install 
+#                      npm run build
+#                      npm run start 
                      
 
 
