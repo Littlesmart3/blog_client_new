@@ -40,10 +40,9 @@ jobs:
               username: ${{ secrets.USER_NAME }}
               password: ${{ secrets.PASSWORD }}
               script: |
-                     whoami
-#                      cd /www/wwwroot/www.littlesmart3.top
-#                      git checkout master
-#                      git pull 
+                      cd /www/wwwroot/www.littlesmart3.top
+                      git checkout master
+                      git pull 
 #                      npm install 
 #                      npm run build
 #                      npm run start 
