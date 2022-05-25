@@ -35,7 +35,6 @@ jobs:
       - name: Deploy
         uses: appleboy/ssh-action@master
         with:
-          #             passphrase: ${{ secrets.SSH_PRIVATE_KEY }}
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.PASSWORD }}
