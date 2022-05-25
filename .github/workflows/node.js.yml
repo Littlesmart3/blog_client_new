@@ -43,6 +43,9 @@ jobs:
             cd /www/wwwroot/www.littlesmart3.top
             git checkout master
             git pull 
+            node -v
+            npm -v 
+            yarn -v
             yarn 
             yarn build
             yarn start
