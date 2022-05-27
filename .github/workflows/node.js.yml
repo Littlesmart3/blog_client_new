@@ -39,10 +39,9 @@ jobs:
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            cd /www/wwwroot/www.littlesmart3.top
+            cd /www/wwwroot/blog/www.littlesmart3.top
             git checkout master
             git pull 
-            pwd
             yarn 
             yarn build
-            yarn start
+            pm2 start --name client yarn -- start
