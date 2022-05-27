@@ -23,13 +23,6 @@ jobs:
         with:
           node-version: v16.15.0
 
-      #         # 装依赖
-      #         - name: Install
-      #           run: yarn
-
-      #         # 打包
-      #         - name: Build
-      #           run: yarn build
 
       #上传打包资源
       - name: Deploy
@@ -42,6 +35,7 @@ jobs:
             cd /www/wwwroot/blog/www.littlesmart3.top
             git checkout master
             git pull 
+            pm2 delete client
             yarn 
             yarn build
             pm2 start --name client yarn -- start
