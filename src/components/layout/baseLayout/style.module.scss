@@ -1,5 +1,29 @@
-.baseLayout {
-  height: 100vh;
-  width: 100vw;
-  background: url('../../../assets/img/background.jpeg') center center / cover no-repeat;
+.baseLayout-component {
+  header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  main {
+    .banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      background: url('../../../assets/img/background/1.png') center center / cover no-repeat;
+      &-slot {
+        width: 300px;
+      }
+    }
+    .container {
+      //
+    }
+    .footer {
+      .footer-default {
+        height: 100px;
+        background-color: #fff;
+      }
+    }
+  }
 }
