@@ -1,8 +1,9 @@
 import type { NextPage } from 'next';
 import React, { FC, useEffect } from 'react';
-import style from './style.module.scss';
-import imgSrc from '@/assets/img/background/1.png';
 import NavigationComponent from '@/components/navigation';
+import _ from 'lodash';
+import style from './style.module.scss';
+
 interface propsParams {
   model?: 'min' | 'default';
   bannerSlot?: JSX.Element;
@@ -30,6 +31,7 @@ const BaseLayoutComponent: NextPage<propsParams> = (props) => {
 
   useEffect(() => {
     getConfig();
+    window.onresize = () => getConfig();
   });
 
   return (
@@ -39,7 +41,6 @@ const BaseLayoutComponent: NextPage<propsParams> = (props) => {
       </header>
       <main>
         <div className={style.banner} style={{ height: bannerHeight }}>
-          {' '}
           {bannerSlot ? <>{bannerSlot}</> : null}
         </div>
         <div className={style.container}>{containerSlot ? <>{containerSlot}</> : null}</div>

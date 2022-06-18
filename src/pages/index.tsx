@@ -6,7 +6,7 @@ import { getScreenWidth } from '@/utils/getScreenWidth';
 
 const Index: NextPage = () => {
   useEffect(() => {
-    getScreenWidth((cb) => console.log(cb));
+    // getScreenWidth((cb) => console.log(cb));
   }, []);
   return <HomePage></HomePage>;
 };
