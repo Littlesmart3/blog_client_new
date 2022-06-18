@@ -11,18 +11,34 @@ export const RECORD = {
   url: 'https://beian.miit.gov.cn'
 };
 
+// 图片模块
 const BannerSlot: FC = () => {
   return (
     <div className={style['banner-solt']}>
-      <div>风丶宇的个人博客</div>
+      <div className={style['banner-container']}>
+        <div className={style['blog-title']}>Littlesamrt3的博客</div>
+        <div className={style['blog-info']}>
+          <span>还君明珠双泪垂，恨不相逢未嫁时。</span>
+          <span className={style['typed-cursor']}>|</span>
+        </div>
+      </div>
+      <div className={style['scroll-down']}>
+        <i className='iconfont icon-xiangxia '></i>
+      </div>
     </div>
   );
 };
 
+// 内容模块
+const ContainerSlot: FC = () => {
+  return <div className={style['container-solt']}>开发中...</div>;
+};
+
+// 底部网站信息
 const FooterSlot: FC = () => {
   return (
     <div className={style['footer-slot']}>
-      <div className={style.beian}>{RECORD.copyright}</div>
+      <div className={style.copyright}>{RECORD.copyright}</div>
       <a className={style.beian} href={RECORD.url}>
         {RECORD.icp}
       </a>
@@ -37,7 +53,7 @@ const Home: NextPage = () => {
   });
   return (
     <div className={style.home}>
-      <BaseLayout bannerSlot={<BannerSlot />} footerSlot={<FooterSlot />} />
+      <BaseLayout bannerSlot={<BannerSlot />} containerSlot={<ContainerSlot />} footerSlot={<FooterSlot />} />
     </div>
   );
 };

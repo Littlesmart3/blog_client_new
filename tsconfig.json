@@ -17,6 +17,6 @@
     "baseUrl": ".",
     "paths": { "@/*": ["src/*"] }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./src"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./src", "./typings"],
   "exclude": ["node_modules"]
 }

@@ -1,10 +1,77 @@
 .home {
-  height: 100vh;
-  width: 100vw;
   .banner-solt {
-    color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .banner-container {
+      flex: 1;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .blog-title {
+        font-size: 35px;
+      }
+      .blog-info {
+        font-size: 25px;
+        .typed-cursor {
+          opacity: 1;
+          animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+          0% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .scroll-down {
+      height: 50px;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      i {
+        cursor: pointer;
+        opacity: 0.6;
+        margin-bottom: 0px;
+        animation: down 1.5s infinite;
+        @keyframes down {
+          0% {
+            margin-bottom: 0px;
+            opacity: 0.6;
+          }
+          50% {
+            margin-bottom: 20px;
+            opacity: 1;
+          }
+          100% {
+            margin-bottom: 0px;
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+  }
+  .container-solt {
+    height: 200px;
   }
   .footer-slot {
-    margin: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    color: #fff;
+    background-color: #051536;
+    .copyright {
+    }
   }
 }

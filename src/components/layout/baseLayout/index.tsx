@@ -17,17 +17,21 @@ const FooterComponent: FC<{ element: JSX.Element | undefined }> = (props) => {
 
 const BaseLayoutComponent: NextPage<propsParams> = (props) => {
   const { model = 'default', footer = true, bannerSlot, containerSlot, footerSlot } = props;
+
   // banner图片的高度
   const [bannerHeight, setBannerHeight] = React.useState(0);
+
   // 模式配置
   const getConfig = () => {
     // 配置banner图片的高度
     if (model === 'default') setBannerHeight(window.innerHeight);
     else setBannerHeight(300);
   };
+
   useEffect(() => {
     getConfig();
   });
+
   return (
     <div className={style['baseLayout-component']}>
       <header>
@@ -35,9 +39,10 @@ const BaseLayoutComponent: NextPage<propsParams> = (props) => {
       </header>
       <main>
         <div className={style.banner} style={{ height: bannerHeight }}>
-          {bannerSlot ? <div className={style['banner-slot']}>{bannerSlot}</div> : null}
+          {' '}
+          {bannerSlot ? <>{bannerSlot}</> : null}
         </div>
-        <div className={style.container}>{containerSlot ? <div className={style['container-slot']}>{bannerSlot}</div> : null}</div>
+        <div className={style.container}>{containerSlot ? <>{containerSlot}</> : null}</div>
         <div className={style.footer}>{footer ? <FooterComponent element={footerSlot} /> : null}</div>
       </main>
     </div>
