@@ -8,10 +8,8 @@ import _ from 'lodash';
 const NavigationComponent: NextPage = () => {
   // 滑动前当前滑动高度
   let beforeScrollTop = 0;
-  let state = {
-    scrollWag: 'up'
-  };
-  const [navTransform, setNavTransform] = useState('unset');
+
+  const [navTransform, setNavTransform] = useState({});
 
   // 路由转跳
   const routeChange = (type: string) => {
@@ -29,7 +27,7 @@ const NavigationComponent: NextPage = () => {
   };
 
   // 获取页面滑动方向
-  const getScollDirection = () => {
+  const getScollDirection = function () {
     const getScollTop = () => {
       let scrollTop = 0;
       if (document?.documentElement && document?.documentElement?.scrollTop) {
@@ -41,29 +39,31 @@ const NavigationComponent: NextPage = () => {
     };
     const bindHandleScroll = () => {
       const scrollTop = getScollTop();
-      if (scrollTop <= beforeScrollTop) {
-        if (!(state.scrollWag === 'up')) {
-          state.scrollWag = 'up';
-          _.debounce(() => setNavTransform('translateY(-60px)'), 0);
-        }
-      } else {
-        if (!(state.scrollWag === 'down')) {
-          state.scrollWag = 'down';
-          _.debounce(() => setNavTransform('translateY(0px)'), 0);
-        }
-      }
+      setNavAnimation(scrollTop <= beforeScrollTop ? 'up' : 'down');
       setTimeout(() => (beforeScrollTop = scrollTop), 0);
     };
     return bindHandleScroll();
   };
+
+  // 设置滑动动画
+  const setNavAnimation = (type: 'up' | 'down') => {
+    const style = {
+      transform: `translateY(${type == 'up' ? '0' : '-60'}px)`,
+      backgroundColor: beforeScrollTop > 100 ? 'rgba(255, 255, 255, 0.8)' : 'unset',
+      color: beforeScrollTop > 100 ? '#4b4948' : '#fff',
+      transition: '0.5s'
+    };
+    setNavTransform(style);
+  };
   useEffect(() => {
-    // TODO:
-    // window.addEventListener('scroll', () => {
-    //   getScollDirection();
-    // });
-  });
+    // TODO: 动画设置还有问题，调试
+    window.addEventListener(
+      'scroll',
+      _.throttle(() => getScollDirection(), 100)
+    );
+  }, []);
   return (
-    <div className={style.NavigationComponent} style={{ transform: navTransform }}>
+    <div className={style.NavigationComponent} style={navTransform}>
       <div className={style.left} onClick={() => routeChange('home')}>
         Littlesmart3
       </div>

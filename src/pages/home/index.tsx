@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import React, { FC, useEffect } from 'react';
 import Router from 'next/router';
 import BaseLayout from '@/components/layout/baseLayout';
+import ArticleCardComponent from './components/articleCard';
 import style from './style.module.scss';
 
 // 网站备案信息
@@ -31,7 +32,11 @@ const BannerSlot: FC = () => {
 
 // 内容模块
 const ContainerSlot: FC = () => {
-  return <div className={style['container-solt']}>开发中...</div>;
+  return (
+    <div className={style['container-solt']}>
+      <ArticleCardComponent />
+    </div>
+  );
 };
 
 // 底部网站信息
